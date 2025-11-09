@@ -6,6 +6,7 @@ from tool import get_hotels, get_flights, get_places, get_iata_code, get_country
 from load_dotenv import load_dotenv
 from crewai import LLM, Agent, Crew
 from pprint import pprint
+import streamlit as st
 
 # load_dotenv()
 
@@ -95,6 +96,7 @@ def handle_user_query(user_query: str):
     result = crew.kickoff()
     print("final result:", result)
     return result
+
 
 
 
