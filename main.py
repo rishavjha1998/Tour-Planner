@@ -11,7 +11,7 @@ from pprint import pprint
 
 aviation_stackKey = st.secrets["aviation_stackKey"]
 api_key = st.secrets["OPENAI_API_KEY"]
-SERP_API = get_env_key("SERP_API")
+SERP_API =  st.secrets["SERP_API"]
 
 
 # 1️⃣ Define your OpenAI model
@@ -94,4 +94,5 @@ def handle_user_query(user_query: str):
     result = crew.kickoff()
     print("final result:", result)
     return result
+
 
