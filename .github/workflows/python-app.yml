@@ -23,7 +23,7 @@
 
         - name: Run Streamlit app (for testing/deployment purposes)
           run: |
-            streamlit run app.py --server.address 0.0.0.0 --server.port 8501 & # Run in background
+            streamlit run app.py --server.runOnSave true
             sleep 10 # Give the app time to start
             # You can add further steps here, e.g., for testing or deploying to a specific platform
             # For example, if deploying to Streamlit Community Cloud, you'd use their specific deployment actions/commands
