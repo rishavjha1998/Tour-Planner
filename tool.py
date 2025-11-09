@@ -14,8 +14,7 @@ import streamlit as st
 
 aviation_stackKey = st.secrets["aviation_stackKey"]
 api_key = st.secrets["OPENAI_API_KEY"]
-SERP_API = get_env_key("SERP_API")
-
+SERP_API = st.secrets["SERP_API"]
 
 
 
@@ -186,3 +185,4 @@ def get_places(location: str):
 We are Planning to go on 4 day trip from Bangalore to Goa on 20th November 2025. Plan our trip
 
 '''
+
