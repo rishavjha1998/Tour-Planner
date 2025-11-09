@@ -7,9 +7,18 @@ import json
 from serpapi import GoogleSearch
 from datetime import datetime
 from dotenv import load_dotenv
+import streamlit as st
 
 # Load environment variables
-load_dotenv()
+# load_dotenv()
+
+aviation_stackKey = st.secrets["aviation_stackKey"]
+api_key = st.secrets["OPENAI_API_KEY"]
+SERP_API = get_env_key("SERP_API")
+
+
+
+
 
 # --- Utility for keys ---
 def get_env_key(key_name):
@@ -42,7 +51,8 @@ def get_iata_code(city: str, country_code: str):
     Fetch the IATA code for a given city using the AviationStack API.
     Takes a country_code ('IN', 'US', etc.), not a country name.
     """
-    aviation_stackKey = get_env_key("aviation_stackKey")
+   
+    # get_env_key("aviation_stackKey")
 
     url = f"http://api.aviationstack.com/v1/airports?access_key={aviation_stackKey}&country_iso2={country_code}"
     response = requests.get(url).json()
@@ -60,7 +70,8 @@ def get_flights(outbound_date: str, dep_code: str, arr_code: str, max_price=1000
     """
     Search flights between two IATA codes using the SERP API Google Flights engine.
     """
-    SERP_API = get_env_key("SERP_API")
+    aviation_stackKey = st.secrets["SERP_API"]
+    # SERP_API = get_env_key("SERP_API")
     print("Searching flights with SERP API...")
 
     params = {
@@ -102,7 +113,7 @@ def get_flights(outbound_date: str, dep_code: str, arr_code: str, max_price=1000
 @tool("get_hotels")
 def get_hotels(destination: str, checkin_date: str, checkout_date: str, max_price: int = 10000, adults: int = 2, children: int = 0, children_ages: list = []):
     """Search best hotels in a city using Google Hotels via SERP API."""
-    SERP_API = get_env_key("SERP_API")
+    # SERP_API = get_env_key("SERP_API")
 
     params = {
         "api_key": SERP_API,
@@ -144,7 +155,7 @@ def get_hotels(destination: str, checkin_date: str, checkout_date: str, max_pric
 @tool("get_places")
 def get_places(location: str):
     """Fetch top tourist places in a city using Google Local results."""
-    SERP_API = get_env_key("SERP_API")
+    # SERP_API = get_env_key("SERP_API")
 
     params = {
         "api_key": SERP_API,
@@ -173,4 +184,5 @@ def get_places(location: str):
 
 '''
 We are Planning to go on 4 day trip from Bangalore to Goa on 20th November 2025. Plan our trip
+
 '''
