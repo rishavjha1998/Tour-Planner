@@ -34,7 +34,7 @@ fsspec==2025.10.0
 gitdb==4.0.12
 GitPython==3.1.45
 google-auth==2.43.0
-google-genai==1.49.0
+google-genai==1.47.0
 google-search-results==2.4.2
 googleapis-common-protos==1.71.0
 grpcio==1.76.0
@@ -162,6 +162,7 @@ websockets==15.0.1
 yarl==1.22.0
 zipp==3.23.0
 zstandard==0.25.0
+
 
 
 
