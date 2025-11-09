@@ -63,7 +63,7 @@ jsonschema-specifications==2025.9.1
 kubernetes==34.1.0
 langchain-core== 0.3.79
 langchain-openai==0.3.35
-langsmith==0.4.41
+langsmith== 0.4.37
 load-dotenv==0.1.0
 markdown-it-py==4.0.0
 MarkupSafe==3.0.3
@@ -162,6 +162,7 @@ websockets==15.0.1
 yarl==1.22.0
 zipp==3.23.0
 zstandard==0.25.0
+
 
 
 
