@@ -17,8 +17,8 @@ SERP_API =  st.secrets["SERP_API"]
 # 1️⃣ Define your OpenAI model
 from crewai import LLM
 
-aviation_stackKey = os.environ.get("aviation_stackKey")
-SERP_API = os.environ.get("SERP_API")
+# aviation_stackKey = os.environ.get("aviation_stackKey")
+# SERP_API = os.environ.get("SERP_API")
 
 if not aviation_stackKey:
     raise RuntimeError("aviation_stackKey not set in environment")
@@ -27,7 +27,8 @@ if not SERP_API:
 
 openai_llm = LLM(
     model="openai/gpt-4o",
-    temperature=0.7
+    temperature=0.7,
+    api_key=api_key
 )
 print(openai_llm)
 print(openai_llm.provider)
@@ -94,5 +95,6 @@ def handle_user_query(user_query: str):
     result = crew.kickoff()
     print("final result:", result)
     return result
+
 
 
